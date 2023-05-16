@@ -2,6 +2,7 @@ import React from "react";
 import classes from "./AvailableMeals.module.css";
 import Card from "../UI/Card";
 import MealItem from "./MealItem";
+// import MealItemForm from "./MealItemForm";
 
 const DUMMY_MEALS = [
   {
@@ -36,7 +37,9 @@ const AvailableMeals = () => {
       name={meal.name}
       description={meal.description}
       price={meal.price}
+      
     />
+    
   ));
   return (
     <section className={classes.meals}>

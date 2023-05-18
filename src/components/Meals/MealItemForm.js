@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import classes from './MealItemForm.module.css'
 import Input from '../UI/Input'
+// import CartProvider from '../../context/CartProvider'
+import CartContext from '../../context/cart-context'
 
 const MealItemForm = () => {
+  const ctx = useContext(CartContext)
+
   return (
     <form className={classes.form}>
     <div>
@@ -19,7 +23,7 @@ const MealItemForm = () => {
     />
       
       </div>
-      <button>+ Add</button>
+      <button onClick={ctx.addItem}>+ Add</button>
     </form>
   )
 }

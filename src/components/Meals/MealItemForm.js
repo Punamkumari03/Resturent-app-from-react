@@ -4,7 +4,7 @@ import Input from '../UI/Input'
 // import CartProvider from '../../context/CartProvider'
 import CartContext from '../../context/cart-context'
 
-const MealItemForm = () => {
+const MealItemForm = (props) => {
   const ctx = useContext(CartContext)
 
   return (
@@ -23,7 +23,8 @@ const MealItemForm = () => {
     />
       
       </div>
-      <button onClick={ctx.addItem}>+ Add</button>
+      <button onClick={ctx.addItem} id={props.id }>+ Add</button>
+    
     </form>
   )
 }

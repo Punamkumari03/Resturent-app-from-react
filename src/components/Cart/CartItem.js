@@ -1,25 +1,23 @@
-import React, { useContext } from 'react'
-
-import classes from './cartItem.module.css'
-import CartContext from '../../context/cart-context';
+import classes from './CartItem.module.css';
 
 const CartItem = (props) => {
-    const ctx = useContext(CartContext)
-    const price = `$${props.price.toFixed(2)}`;
-  return (
-    <li className={classes.meal}>
-    <div>
-        <h3>{props.name}</h3>
-        <div className={classes.description}>{props.description}</div>
-        <div className={classes.price}>{price}</div>
-        </div>
-        <div>
-        <button onClick={ctx.addItem} id={props.id }> + </button>
-        <button onClick={ctx.removeItem} id={props.id }> - </button>
-{/* <MealItemForm id={props.id}/> */}
-        </div>
-    </li>
-  )
-}
+  const price = `$${props.price.toFixed(2)}`;
 
-export default CartItem
+  return (
+    <li className={classes['cart-item']}>
+      <div>
+        <h2>{props.name}</h2>
+        <div className={classes.summary}>
+          <span className={classes.price}>{price}</span>
+          <span className={classes.amount}>x {props.amount}</span>
+        </div>
+      </div>
+      <div className={classes.actions}>
+        <button onClick={props.onRemove}>−</button>
+        <button onClick={props.onAdd}>+</button>
+      </div>
+    </li>
+  );
+};
+
+export default CartItem;
